@@ -70,12 +70,14 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.print("Digite a expressão no formato infixo: ");
-                    expression = scanner.next();
+                    scanner.nextLine();
+                    expression = scanner.nextLine().replaceAll("[ ]", "");
 
                     while (!expressionValidation(expression)) {
                         // TODO: indicar qual é o problema na expressão
                         System.out.print("Expressão inválida! São pertmitidos números, parenteses e os quatro operadores básicos. Digite novamente: ");
-                        expression = scanner.next();
+                        scanner.nextLine();
+                        expression = scanner.nextLine().replaceAll("[ ]", "");
                     }
 
                     System.out.println("\nExpressão válida!");
