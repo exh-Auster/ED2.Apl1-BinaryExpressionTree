@@ -5,6 +5,6 @@
  * @author Enzo Koji       - 32273754
 */
 
-public class Tree {
+public class BinaryTree {
     
 }
