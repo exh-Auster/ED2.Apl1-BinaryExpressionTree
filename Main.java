@@ -37,7 +37,8 @@ public class Main {
         balancedParentheses = parentheses.isEmpty()? balancedParentheses:false;
 
         /* Checa, por meio de regex, se a expressão está em formato válido. */
-        isValidExpression = infixExpression.replaceAll("[()]", "").matches("[1-9](\s*[()+*/^-]\s*[1-9]){1,}");
+        isValidExpression = infixExpression.replaceAll("[()]", "")
+                                           .matches("[1-9](\s*[()+*/^-]\s*[1-9]){1,}");
 
         /* Retorna true apenas se ambos os componentes forem válidos. */
         return balancedParentheses && isValidExpression;
@@ -50,7 +51,11 @@ public class Main {
         String expression = "";
 
         while (true) {
-            System.out.println("\n\n" + new String(new char[23]).replace("\0", "#") + " MENU " + new String(new char[23]).replace("\0", "#"));
+            System.out.println("\n\n" + new String(new char[23])
+                                .replace("\0", "#")
+                                + " MENU " + new String(new char[23])
+                                .replace("\0", "#"));
+            
             System.out.println("1. Entrada da expressão aritmética na notação infixa");
             System.out.println("2. Criação da árvore binária de expressão aritmética");
             System.out.println("3. Exibição da árvore binária de expressão aritmética");
@@ -71,13 +76,15 @@ public class Main {
                 case 1:
                     System.out.print("Digite a expressão no formato infixo: ");
                     scanner.nextLine();
-                    expression = scanner.nextLine().replaceAll("[ ]", "");
+                    expression = scanner.nextLine()
+                                        .replaceAll("[ ]", "");
 
                     while (!expressionValidation(expression)) {
                         // TODO: indicar qual é o problema na expressão
                         System.out.print("Expressão inválida! São pertmitidos números, parenteses e os quatro operadores básicos. Digite novamente: ");
                         scanner.nextLine();
-                        expression = scanner.nextLine().replaceAll("[ ]", "");
+                        expression = scanner.nextLine()
+                                            .replaceAll("[ ]", "");
                     }
 
                     System.out.println("\nExpressão válida!");
