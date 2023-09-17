@@ -6,10 +6,10 @@
 */
 
 public class Node {
-    Node parent;
-    Node left;
-    Node right;
-    char data; // TODO: allow Doubles
+    protected Node parent;
+    protected Node left;
+    protected Node right;
+    protected char data; // TODO: allow Doubles
 
     public Node(char data) {
         this.parent = null;
