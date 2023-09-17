@@ -1,6 +1,26 @@
 public class OperatorNode extends Node {
     protected char data;
 
+    public OperatorNode() {
+        super();
+        this.data = '\0'; // TODO
+    }
+
+    public OperatorNode(char data) {
+        super();
+        this.data = data;
+    }
+
+    public OperatorNode(char data, Node parent, Node left, Node right) {
+        super(parent, left, right);
+        this.data = data;
+    }
+
+    public OperatorNode(char data, Node parent) {
+        super(parent);
+        this.data = data;
+    }
+
     // TODO: rename method
     // TODO: "Na classe do nó que armazena um operador, esse método deve retornar o resultado da operação indicada pelo operador."
     

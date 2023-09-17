@@ -11,6 +11,27 @@ public class Node {
     protected Node right;
     protected char data; // TODO: allow Doubles
 
+    public Node() {
+        this.parent = null;
+        this.left = null;
+        this.right = null;
+        this.data = '\0'; // TODO
+    }
+
+    public Node(Node parent) {
+        this.parent = parent;
+        this.left = null;
+        this.right = null;
+        this.data = '\0'; // TODO
+    }
+
+    public Node(Node parent, Node left, Node right) {
+        this.parent = parent;
+        this.left = left;
+        this.right = right;
+        this.data = '\0'; // TODO
+    }
+
     public Node(char data) {
         this.parent = null;
         this.left = null;
