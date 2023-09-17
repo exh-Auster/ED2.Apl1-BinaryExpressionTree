@@ -87,4 +87,8 @@ public class Node {
     }
 
     // TODO: getDegree?
+
+    public float visitar() { // TODO: rename method
+        return Float.NaN;
+    }
 }
