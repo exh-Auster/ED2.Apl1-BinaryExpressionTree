@@ -71,7 +71,11 @@ public class Main {
                 case 1:
                     System.out.print("Digite a expressão no formato infixo: ");
                     expression = scanner.next();
-                    System.out.println(expressionValidation(expression)? "Expressão válida!":"Expressão inválida!"); // TODO: remove test
+
+                    while (!expressionValidation(expression)) {
+                        System.out.print("Expressão inválida! São pertmitidos números, parenteses e os quatro operadores básicos. Digite novamente: ");
+                        expression = scanner.next();
+                    }
 
                     // TODO
                     break;
