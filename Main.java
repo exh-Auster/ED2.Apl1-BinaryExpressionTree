@@ -31,6 +31,25 @@ public class Main {
                 scanner.close();
                 System.exit(0);
             }
+
+            switch (option) {
+                case 1:
+                    System.out.print("Digite a expressão no formato infixo: ");
+                    // TODO
+                    break;
+                case 2:
+                    // TODO
+                    break;
+                case 3:
+                    // TODO
+                    break;
+                case 4:
+                    // TODO
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
         }
     }
 }
