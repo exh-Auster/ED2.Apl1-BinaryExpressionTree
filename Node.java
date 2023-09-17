@@ -69,4 +69,20 @@ public class Node {
     public char getData() {
         return this.data;
     }
+
+    public boolean hasLeft() {
+        return this.left != null;
+    }
+
+    public boolean hasRight() {
+        return this.right != null;
+    }
+
+    public boolean isRoot() {
+        return this.parent == null;
+    }
+
+    public boolean isLeaf() {
+        return this.left == null && this.right == null;
+    }
 }
