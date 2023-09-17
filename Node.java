@@ -6,14 +6,30 @@
 */
 
 public class Node {
-    char data;
+    Node parent;
     Node left;
     Node right;
+    char data;
 
     public Node(char data) {
-        this.data = data;
+        this.parent = null;
         this.left = null;
         this.right = null;
+        this.data = data;
+    }
+
+    public Node(Node parent, char data) {
+        this.parent = parent;
+        this.left = null;
+        this.right = null;
+        this.data = data;
+    }
+
+    public Node(Node parent, char data, Node left, Node right) {
+        this.parent = parent;
+        this.left = left;
+        this.right = right;
+        this.data = data;
     }
 
     public Node(char data, Node left, Node right) {
@@ -21,11 +37,11 @@ public class Node {
         this.left = left;
         this.right = right;
     }
-
-    public void setData(char data) {
-        this.data = data;
-    }
     
+    public void setParent(Node parent) {
+        this.parent = parent;
+    }
+
     public void setLeft(Node left) {
         this.left = left;
     }
@@ -34,15 +50,23 @@ public class Node {
         this.right = right;
     }
 
-    public char getData() {
-        return this.data;
+    public void setData(char data) {
+        this.data = data;
     }
-
+    
+    public Node getParent() {
+        return this.parent;
+    }
+    
     public Node getLeft() {
         return this.left;
     }
-
+    
     public Node getRight() {
         return this.right;
+    }
+
+    public char getData() {
+        return this.data;
     }
 }
