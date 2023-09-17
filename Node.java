@@ -9,7 +9,7 @@ public class Node {
     protected Node parent;
     protected Node left;
     protected Node right;
-    protected char data; // TODO: allow Doubles
+    protected char data; // TODO: change to Object?
 
     public Node() {
         this.parent = null;
