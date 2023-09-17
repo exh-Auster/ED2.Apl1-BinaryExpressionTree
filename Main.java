@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
-    private static boolean expressionValidation(String infixExpression) {
+    private static boolean expressionValidation(String infixExpression) { // TODO: allow Doubles
         Stack<Character> parentheses = new Stack<Character>();
         boolean balancedParentheses = true;
         boolean isValidExpression;

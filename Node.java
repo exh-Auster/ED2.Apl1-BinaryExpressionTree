@@ -9,7 +9,7 @@ public class Node {
     Node parent;
     Node left;
     Node right;
-    char data;
+    char data; // TODO: allow Doubles
 
     public Node(char data) {
         this.parent = null;
@@ -85,4 +85,6 @@ public class Node {
     public boolean isLeaf() {
         return this.left == null && this.right == null;
     }
+
+    // TODO: getDegree?
 }
