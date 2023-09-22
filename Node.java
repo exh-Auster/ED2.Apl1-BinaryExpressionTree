@@ -121,6 +121,14 @@ public class Node {
 		return degree;
 	}
 
+    public int getLevel() {
+		if (isRoot()) {
+			return 0;
+		}
+
+		return parent.getLevel() + 1;
+	}
+
     public float visitar() { // TODO: rename method
         return Float.NaN;
     }
