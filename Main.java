@@ -47,6 +47,89 @@ public class Main {
         return balancedParentheses && isValidExpression;
     }
 
+    public static String expressionConversion(String infixExpression) {
+        Stack<Character> conversion = new Stack<Character>();
+        String output = "";
+        char[] infixExpressionAsCharArray = infixExpression.toCharArray();
+        
+        for (int i = 0; i < infixExpressionAsCharArray.length; i++) {
+            char currentChar = infixExpressionAsCharArray[i];
+
+            /* Tratamento de cada tipo de char possível na expressão */
+            if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
+                output += currentChar;
+            } else if (currentChar == 40) { // Caso '('
+                conversion.push(currentChar);
+            } else if (currentChar == 41) { // Caso ')'
+                while ((char)conversion.peek() != 40) {
+                    output+= conversion.pop();
+                }
+                
+                conversion.pop();
+            } else if (currentChar == 42 ||
+                       currentChar == 43 ||
+                       currentChar == 45 ||
+                       currentChar == 47) { /* Caso geral para operadores */
+                switch (currentChar) {
+
+                    /* Análise individual para cada operador
+                    (antes de empilhar, desempilha e copia para a saída
+                    enquanto houver no topo operador de maior ou igual prioridade) */
+                    case 42: // Caso '*'
+                        while (!conversion.isEmpty() &&
+                              ((char)conversion.peek() == 94 ||
+                               (char)conversion.peek() == 47 ||
+                               (char)conversion.peek() == 42)) {
+                            output += conversion.pop();
+                        }
+                        
+                        conversion.push(currentChar);
+                        break;
+                    case 43: // Caso '+'
+                        while (!conversion.isEmpty() &&
+                              ((char)conversion.peek() == 94 ||
+                               (char)conversion.peek() == 47 ||
+                               (char)conversion.peek() == 42 ||
+                               (char)conversion.peek() == 45 ||
+                               (char)conversion.peek() == 43)) {
+                            output += conversion.pop();
+                        }
+                        
+                        conversion.push(currentChar);
+                        break;
+                    case 45: // Caso '-'
+                        while (!conversion.isEmpty() &&
+                              ((char)conversion.peek() == 94 ||
+                               (char)conversion.peek() == 47 ||
+                               (char)conversion.peek() == 42 ||
+                               (char)conversion.peek() == 43 ||
+                               (char)conversion.peek() == 45)) {
+                            output += conversion.pop();
+                        }
+
+                        conversion.push(currentChar);
+                        break;
+                    case 47: // Caso '/'
+                        while (!conversion.isEmpty() &&
+                              ((char)conversion.peek() == 94 ||
+                               (char)conversion.peek() == 42 ||
+                               (char)conversion.peek() == 47)) {
+                            output += conversion.pop();
+                        }
+                        
+                        conversion.push(currentChar);
+                        break;
+                }
+            }
+        }
+
+        while (!conversion.isEmpty()) {
+            output += conversion.pop();
+        }
+
+        return output;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -91,6 +174,8 @@ public class Main {
                     }
 
                     System.out.println("\nExpressão válida!");
+                    
+                    // TEST: System.out.println("Expressão convertida: " + expressionConversion(expression));
 
                     // TODO
                     break;
