@@ -65,10 +65,12 @@ public class Node {
 
     public void setLeft(Node left) {
         this.left = left;
+        left.setParent(this);
     }
 
     public void setRight(Node right) {
         this.right = right;
+        right.setParent(this);
     }
 
     public void setData(char data) {
