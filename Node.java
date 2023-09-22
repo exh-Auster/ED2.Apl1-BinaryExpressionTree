@@ -134,10 +134,20 @@ public class Node {
 			return 0;
 		}
 
-        return 0; // TODO
+        int height = 0;
+
+		if (hasLeft())
+			height = Math.max(height, left.getHeight());
+
+		if (hasRight())
+			height = Math.max(height, right.getHeight());
+
+		return height + 1;
 	}
 
     public float visitar() { // TODO: rename method
         return Float.NaN;
     }
+
+    // TODO: toString() override
 }
