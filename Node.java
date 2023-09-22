@@ -129,6 +129,14 @@ public class Node {
 		return parent.getLevel() + 1;
 	}
 
+	public int getHeight() {
+		if (isLeaf()) {
+			return 0;
+		}
+
+        return 0; // TODO
+	}
+
     public float visitar() { // TODO: rename method
         return Float.NaN;
     }
