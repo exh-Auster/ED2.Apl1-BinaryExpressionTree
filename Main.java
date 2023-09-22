@@ -175,7 +175,7 @@ public class Main {
 
                     System.out.println("\nExpressão válida!");
                     
-                    // TEST: System.out.println("Expressão convertida: " + expressionConversion(expression));
+                    System.out.println("Expressão convertida: " + expressionConversion(expression));
 
                     // TODO
                     break;
