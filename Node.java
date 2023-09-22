@@ -109,7 +109,17 @@ public class Node {
         return this.left == null && this.right == null;
     }
 
-    // TODO: getDegree?
+	public int getDegree() {
+		int degree = 0;
+
+		if (hasLeft())
+			++degree;
+
+		if (hasRight())
+			++degree;
+            
+		return degree;
+	}
 
     public float visitar() { // TODO: rename method
         return Float.NaN;
