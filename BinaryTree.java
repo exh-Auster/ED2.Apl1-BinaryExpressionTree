@@ -16,6 +16,10 @@ public class BinaryTree {
         this.root = root;
     }
 
+    public boolean isEmpty() {
+        return this.root == null;
+    }
+
     public Node getRoot() {
         return this.root;
     }
