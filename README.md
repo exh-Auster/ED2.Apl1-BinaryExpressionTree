@@ -1,7 +1,9 @@
 # Arithmetic Expression Binary Tree
 
 [André Matteucci](https://github.com/hashaski)   - 32273541
+
 [Felipe Ribeiro](https://github.com/exh-Auster)  - 32212720
+
 [Enzo Koji](https://github.com/Koji22)           - 32273754
 
  * @see <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see">javadoc - The Java API Documentation Generator</a>
