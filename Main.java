@@ -6,6 +6,7 @@
  * @see <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see">javadoc - The Java API Documentation Generator</a>
  * @see <a href="https://www.cs.swarthmore.edu/~newhall/unixhelp/javacodestyle.html">Java Style Guidelines</a>
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/IandI/hidevariables.html">Hiding Fields (The Java™ Tutorials)</a>
+ * @see <a href="https://en.wikipedia.org/wiki/Binary_expression_tree">Binary expression tree - Wikipedia</a>
  * @see <a href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">Tree Traversal Techniques – Data Structure and Algorithm Tutorials</a>
 */
 
@@ -162,7 +163,7 @@ public class Main {
         String expression = "";
 
         while (true) {
-            System.out.println("\n\n" + new String(new char[23])
+            System.out.println("\n" + new String(new char[23])
                                 .replace("\0", "#")
                                 + " MENU " + new String(new char[23])
                                 .replace("\0", "#"));
