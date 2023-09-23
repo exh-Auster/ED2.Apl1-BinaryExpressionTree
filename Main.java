@@ -51,11 +51,9 @@ public class Main {
 
     public static String expressionConversion(String infixExpression) {
         Stack<Character> conversion = new Stack<Character>();
-        String output = "";
-        char[] infixExpressionAsCharArray = infixExpression.toCharArray();
-        
-        for (int i = 0; i < infixExpressionAsCharArray.length; i++) {
-            char currentChar = infixExpressionAsCharArray[i];
+        String output = "";        
+        for (int i = 0; i < infixExpression.length(); i++) {
+            char currentChar = infixExpression.charAt(i);
 
             /* Tratamento de cada tipo de char possível na expressão */
             if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
