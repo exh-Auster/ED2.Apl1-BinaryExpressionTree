@@ -1,6 +1,6 @@
 # Arithmetic Expression Binary Tree
 
-[André Matteucci](https://github.com/hashaski)   - 32273541
+[André Matteucci](https://github.com/hashaski)    &nbsp; &nbsp;- 32273541
 
 [Felipe Ribeiro](https://github.com/exh-Auster)  - 32212720
 
