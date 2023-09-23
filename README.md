@@ -2,7 +2,7 @@
 
 [André Matteucci](https://github.com/hashaski)&nbsp; &nbsp;- 32273541
 
-[Felipe Ribeiro](https://github.com/exh-Auster)&nbsp; &nbsp; &nbsp;- 32212720
+[Felipe Ribeiro](https://github.com/exh-Auster)&nbsp; &nbsp; &nbsp; &nbsp;- 32212720
 
 [Enzo Koji](https://github.com/Koji22)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- 32273754
 
