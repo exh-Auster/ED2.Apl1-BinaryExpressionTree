@@ -2,9 +2,9 @@
 
 [André Matteucci](https://github.com/hashaski)&nbsp; &nbsp;- 32273541
 
-[Felipe Ribeiro](https://github.com/exh-Auster)&nbsp; &nbsp;- 32212720
+[Felipe Ribeiro](https://github.com/exh-Auster)&nbsp; &nbsp; &nbsp; &nbsp;- 32212720
 
-[Enzo Koji](https://github.com/Koji22)&nbsp; &nbsp; &nbsp;- 32273754
+[Enzo Koji](https://github.com/Koji22)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- 32273754
 
  * @see <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see">javadoc - The Java API Documentation Generator</a>
  * @see <a href="https://www.cs.swarthmore.edu/~newhall/unixhelp/javacodestyle.html">Java Style Guidelines</a>
