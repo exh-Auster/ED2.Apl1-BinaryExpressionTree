@@ -157,7 +157,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
-        BinaryTree expressionTree;
+        BinaryTree expressionTree = null;
 
         String expression = "";
 
@@ -185,7 +185,7 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.out.print("Digite a expressão no formato infixo: ");
+                    System.out.print("\nDigite a expressão no formato infixo: ");
                     scanner.nextLine();
                     expression = scanner.nextLine()
                                         .replaceAll("[ ]", "");
@@ -198,19 +198,18 @@ public class Main {
                                             .replaceAll("[ ]", "");
                     }
 
-                    System.out.println("\nExpressão infixa válida!");
-                    System.out.println("Expressão convertida: "
-                                       + expressionConversion(expression));
+                    System.out.println("\nExpressão infixa válida! " +
+                                       "Expressão posfixa: " +
+                                       expressionConversion(expression));
                     break;
                 case 2:
                     expressionTree = createExpressionTree(expressionConversion(expression));
-                    // TODO: remove debug prints
-                    System.out.println(expressionTree.preorderTraversal());
-                    System.out.println(expressionTree.inorderTraversal());
-                    System.out.println(expressionTree.postorderTraversal());
+                    System.out.println("\nÁrvore binária de expressão criada!");
                     break;
-                case 3:
-                    // TODO
+                case 3: // TODO
+                    System.out.println("\npreorder:  " + expressionTree.preorderTraversal());
+                    System.out.println("inorder:   "   + expressionTree.inorderTraversal());
+                    System.out.println("postorder: "   + expressionTree.postorderTraversal());
                     break;
                 case 4:
                     // TODO
