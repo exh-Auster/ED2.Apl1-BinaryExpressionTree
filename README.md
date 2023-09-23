@@ -22,10 +22,7 @@ Este é um projeto para a disciplina de Estrutura de Dados II, que envolve a imp
 
 ## Funcionalidades
 
-- Entrada de expressões aritméticas em notação infixada
-- Criação de árvores binárias de expressões aritméticas
-- Exibição de árvores binárias de expressões aritméticas
-- Cálculo de expressões aritméticas usando a árvore binária
+Este projeto é uma aplicação em Java que permite ao usuário digitar e avaliar expressões aritméticas usando uma árvore binária de expressão. O usuário pode inserir a expressão na notação infixa, que é a forma mais comum de escrever expressões matemáticas, e o programa irá converter a expressão para a notação pós-fixa, que é mais fácil de manipular com uma pilha. Em seguida, o programa irá construir uma árvore binária de expressão, onde cada nó é um operando ou um operador, e percorrer a árvore em ordem pós-fixa para calcular o valor da expressão. O programa também permite ao usuário visualizar a árvore binária de expressão na tela. O programa suporta os operadores +, -, *, / e ^, e os operandos devem ser números inteiros positivos ou negativos. O programa também suporta o uso de parênteses para alterar a precedência dos operadores. O projeto usa os conceitos de orientação a objetos e recursividade para implementar a árvore binária de expressão e as suas operações.
 
 ## Como usar
 
