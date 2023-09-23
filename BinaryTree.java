@@ -9,13 +9,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree {
-    private Node root;
+    private OperatorNode root;
 
     public BinaryTree() {
         this.root = null;
     }
 
-    public BinaryTree(Node root) {
+    public BinaryTree(OperatorNode root) {
         this.root = root;
     }
 
@@ -27,7 +27,7 @@ public class BinaryTree {
         return this.root;
     }
 
-    public void setRoot(Node root) {
+    public void setRoot(OperatorNode root) {
         this.root = root;
     }
 
