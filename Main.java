@@ -130,9 +130,33 @@ public class Main {
         return output;
     }
 
+    public static BinaryTree createExpressionTree(String postfixExpression) {
+        Stack<Node> expressionTree = new Stack<Node>();
+        char[] postfixExpressionAsCharArray = postfixExpression.toCharArray();
+
+        for (int i = 0; i < postfixExpressionAsCharArray.length; i++) {
+            char currentChar = postfixExpressionAsCharArray[i];
+
+            if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
+                expressionTree.push(new Node(currentChar));
+            } else if (currentChar == 42 ||
+                       currentChar == 43 ||
+                       currentChar == 45 ||
+                       currentChar == 47) { /* Caso geral para operadores */
+                Node right = expressionTree.pop();
+                Node left = expressionTree.pop();
+
+                expressionTree.push(new Node(currentChar, left, right));
+            }
+        }
+
+        return new BinaryTree(expressionTree.pop());
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
+        BinaryTree expressionTree;
 
         String expression = "";
 
@@ -173,14 +197,16 @@ public class Main {
                                             .replaceAll("[ ]", "");
                     }
 
-                    System.out.println("\nExpressão válida!");
-                    
-                    System.out.println("Expressão convertida: " + expressionConversion(expression));
-
-                    // TODO
+                    System.out.println("\nExpressão infixa válida!");
+                    System.out.println("Expressão convertida: "
+                                       + expressionConversion(expression));
                     break;
                 case 2:
-                    // TODO
+                    expressionTree = createExpressionTree(expressionConversion(expression));
+                    // TODO: remove debug prints
+                    System.out.println(expressionTree.preorderTraversal());
+                    System.out.println(expressionTree.inorderTraversal());
+                    System.out.println(expressionTree.postorderTraversal());
                     break;
                 case 3:
                     // TODO
