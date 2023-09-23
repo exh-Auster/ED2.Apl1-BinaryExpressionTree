@@ -9,7 +9,7 @@ public class Node {
     protected Node parent;
     protected Node left;
     protected Node right;
-    protected char data; // TODO: change to Object?
+    protected Object data;
 
     public Node() {
         this.parent = null;
@@ -22,6 +22,13 @@ public class Node {
         this.parent = parent;
         this.left = null;
         this.right = null;
+        this.data = '\0'; // TODO
+    }
+
+    public Node(Node left, Node right) {
+        this.parent = null;
+        this.left = left;
+        this.right = right;
         this.data = '\0'; // TODO
     }
 
@@ -89,7 +96,7 @@ public class Node {
         return this.right;
     }
 
-    public char getData() {
+     public Object getData() {
         return this.data;
     }
 
