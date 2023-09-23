@@ -11,6 +11,11 @@ public class OperatorNode extends Node {
         this.data = data;
     }
 
+    public OperatorNode(char data, Node left, Node right) {
+        super(left, right);
+        this.data = data;
+    }
+
     public OperatorNode(char data, Node parent, Node left, Node right) {
         super(parent, left, right);
         this.data = data;
@@ -19,6 +24,10 @@ public class OperatorNode extends Node {
     public OperatorNode(char data, Node parent) {
         super(parent);
         this.data = data;
+    }
+
+    public Character getData() {
+        return this.data;
     }
 
     // TODO: rename method

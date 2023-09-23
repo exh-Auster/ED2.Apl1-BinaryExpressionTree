@@ -11,6 +11,11 @@ public class OperandNode extends Node {
         this.data = data;
     }
 
+    public OperandNode(Node left, Node right) {
+        super(left, right);
+        this.data = Float.NaN;
+    }
+
     public OperandNode(float data, Node parent, Node left, Node right) {
         super(parent, left, right);
         this.data = data;
@@ -19,6 +24,10 @@ public class OperandNode extends Node {
     public OperandNode(float data, Node parent) {
         super(parent);
         this.data = data;
+    }
+
+    public Float getData() {
+        return this.data;
     }
 
     // TODO: rename method
