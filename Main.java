@@ -140,7 +140,7 @@ public class Main {
             char currentChar = postfixExpressionAsCharArray[i];
 
             if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
-                expressionTree.push(new Node(currentChar));
+                expressionTree.push(new OperandNode(Float.parseFloat(String.valueOf(currentChar))));
             } else if (currentChar == 42 ||
                        currentChar == 43 ||
                        currentChar == 45 ||
@@ -148,11 +148,11 @@ public class Main {
                 Node right = expressionTree.pop();
                 Node left = expressionTree.pop();
 
-                expressionTree.push(new Node(currentChar, left, right));
+                expressionTree.push(new OperatorNode(currentChar, left, right));
             }
         }
 
-        return new BinaryTree(expressionTree.pop());
+        return new BinaryTree((OperatorNode) expressionTree.pop());
     }
 
     public static void main(String[] args) {
@@ -213,7 +213,7 @@ public class Main {
                     System.out.println("postorder: "   + expressionTree.postorderTraversal());
                     break;
                 case 4:
-                    // TODO
+                    System.out.println("\nO resultado da expressão é " + expressionTree.getRoot().visitar());
                     break;
                 default:
                     System.out.println("Opção inválida!");
