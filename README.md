@@ -36,4 +36,4 @@ Este é um projeto para a disciplina de Estrutura de Dados II, que envolve a imp
 
 ## Tecnologias utilizadas
 
-- Java 11
+* Java 11
