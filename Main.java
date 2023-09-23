@@ -10,10 +10,22 @@
  * @see <a href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">Tree Traversal Techniques – Data Structure and Algorithm Tutorials</a>
 */
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
+    public static boolean isNumeric(String str) { 
+        try {  
+          Double.parseDouble(str);  
+
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
+      }
+
     private static boolean expressionValidation(String infixExpression) { // TODO: allow Doubles
         Stack<Character> parentheses = new Stack<Character>();
         boolean balancedParentheses = true;
@@ -49,105 +61,104 @@ public class Main {
         return balancedParentheses && isValidExpression;
     }
 
-    public static String expressionConversion(String infixExpression) {
-        Stack<Character> conversion = new Stack<Character>();
-        String output = "";
+    public static List<String> expressionConversion(String infixExpression) {
+        Tokenizer tk = new Tokenizer(infixExpression);
+        List<String> tokens = tk.tokenize();
 
-        for (int i = 0; i < infixExpression.length(); i++) {
-            char currentChar = infixExpression.charAt(i);
+        Stack<String> conversion = new Stack<String>();
 
-            /* Tratamento de cada tipo de char possível na expressão */
-            if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
-                output += currentChar;
-            } else if (currentChar == 40) { // Caso '('
-                conversion.push(currentChar);
-            } else if (currentChar == 41) { // Caso ')'
-                while ((char)conversion.peek() != 40) {
-                    output+= conversion.pop();
+        List<String> output = new ArrayList<String>();
+
+        for (String token : tokens) {
+            if (isNumeric(token)) {
+                output.add(token);
+            } else if (token.equals("(")) {
+                conversion.push(token);
+            } else if (token.equals(")")) {
+                while (!conversion.isEmpty() &&
+                       !conversion.peek().equals("(")) {
+                    output.add(conversion.pop());
                 }
                 
                 conversion.pop();
-            } else if (currentChar == 42 ||
-                       currentChar == 43 ||
-                       currentChar == 45 ||
-                       currentChar == 47) { /* Caso geral para operadores */
-                switch (currentChar) {
+            } else if (token.equals("*") ||
+                       token.equals("+") ||
+                       token.equals("-") ||
+                       token.equals("/")) { /* Caso geral para operadores */
+                switch (token) {
 
                     /* Análise individual para cada operador
                     (antes de empilhar, desempilha e copia para a saída
                     enquanto houver no topo operador de maior ou igual prioridade) */
-                    case 42: // Caso '*'
+                    case "*":
                         while (!conversion.isEmpty() &&
-                              ((char)conversion.peek() == 94 ||
-                               (char)conversion.peek() == 47 ||
-                               (char)conversion.peek() == 42)) {
-                            output += conversion.pop();
+                              (conversion.peek().equals("^") ||
+                               conversion.peek().equals("/") ||
+                               conversion.peek().equals("*"))) {
+                            output.add(conversion.pop());
                         }
                         
-                        conversion.push(currentChar);
+                        conversion.push(token);
                         break;
-                    case 43: // Caso '+'
+                    case "+":
                         while (!conversion.isEmpty() &&
-                              ((char)conversion.peek() == 94 ||
-                               (char)conversion.peek() == 47 ||
-                               (char)conversion.peek() == 42 ||
-                               (char)conversion.peek() == 45 ||
-                               (char)conversion.peek() == 43)) {
-                            output += conversion.pop();
+                              (conversion.peek().equals("^") ||
+                               conversion.peek().equals("/") ||
+                               conversion.peek().equals("*") ||
+                               conversion.peek().equals("-") ||
+                               conversion.peek().equals("+"))) {
+                            output.add(conversion.pop());
                         }
                         
-                        conversion.push(currentChar);
+                        conversion.push(token);
                         break;
-                    case 45: // Caso '-'
+                    case "-":
                         while (!conversion.isEmpty() &&
-                              ((char)conversion.peek() == 94 ||
-                               (char)conversion.peek() == 47 ||
-                               (char)conversion.peek() == 42 ||
-                               (char)conversion.peek() == 43 ||
-                               (char)conversion.peek() == 45)) {
-                            output += conversion.pop();
+                              (conversion.peek().equals("^") ||
+                               conversion.peek().equals("/") ||
+                               conversion.peek().equals("*") ||
+                               conversion.peek().equals("+") ||
+                               conversion.peek().equals("-"))) {
+                            output.add(conversion.pop());
                         }
 
-                        conversion.push(currentChar);
+                        conversion.push(token);
                         break;
-                    case 47: // Caso '/'
+                    case "/":
                         while (!conversion.isEmpty() &&
-                              ((char)conversion.peek() == 94 ||
-                               (char)conversion.peek() == 42 ||
-                               (char)conversion.peek() == 47)) {
-                            output += conversion.pop();
+                              (conversion.peek().equals("^") ||
+                               conversion.peek().equals("*") ||
+                               conversion.peek().equals("/"))) {
+                            output.add(conversion.pop());
                         }
                         
-                        conversion.push(currentChar);
+                        conversion.push(token);
                         break;
                 }
             }
         }
 
         while (!conversion.isEmpty()) {
-            output += conversion.pop();
+            output.add(conversion.pop());
         }
 
         return output;
     }
 
-    public static BinaryTree createExpressionTree(String postfixExpression) {
+    public static BinaryTree createExpressionTree(List<String> postfixExpression) {
         Stack<Node> expressionTree = new Stack<Node>();
-        char[] postfixExpressionAsCharArray = postfixExpression.toCharArray();
 
-        for (int i = 0; i < postfixExpressionAsCharArray.length; i++) {
-            char currentChar = postfixExpressionAsCharArray[i];
-
-            if (currentChar >= 48 && currentChar <= 57) { // Caso 0-9
-                expressionTree.push(new OperandNode(Float.parseFloat(String.valueOf(currentChar))));
-            } else if (currentChar == 42 ||
-                       currentChar == 43 ||
-                       currentChar == 45 ||
-                       currentChar == 47) { /* Caso geral para operadores */
+        for (String token : postfixExpression) {
+            if (isNumeric(token)) { // Caso 0-9
+                expressionTree.push(new OperandNode(Float.parseFloat(String.valueOf(token))));
+            } else if (token.equals("*") ||
+                       token.equals("+") ||
+                       token.equals("-") ||
+                       token.equals("/"))  { /* Caso geral para operadores */
                 Node right = expressionTree.pop();
                 Node left = expressionTree.pop();
 
-                expressionTree.push(new OperatorNode(currentChar, left, right));
+                expressionTree.push(new OperatorNode(token.toCharArray()[0], left, right));
             }
         }
 
@@ -210,7 +221,7 @@ public class Main {
                                        expressionConversion(expression));
                     
                     maxCompleted = 1;
-                    
+
                     break;
                 case 2:
                     expressionTree = createExpressionTree(expressionConversion(expression));
