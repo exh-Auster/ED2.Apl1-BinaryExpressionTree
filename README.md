@@ -1,6 +1,6 @@
 # Arithmetic Expression Binary Tree
 
-@hashaski André Matteucci   - 32273541
+@author hashaski André Matteucci   - 32273541
 @exh-Auster Felipe Ribeiro  - 32212720
 @Koji22 Enzo Koji           - 32273754
 
