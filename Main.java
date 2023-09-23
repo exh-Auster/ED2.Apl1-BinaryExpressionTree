@@ -51,7 +51,8 @@ public class Main {
 
     public static String expressionConversion(String infixExpression) {
         Stack<Character> conversion = new Stack<Character>();
-        String output = "";        
+        String output = "";
+
         for (int i = 0; i < infixExpression.length(); i++) {
             char currentChar = infixExpression.charAt(i);
 
@@ -155,10 +156,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int option;
+        int option, maxCompleted = 0;
         BinaryTree expressionTree = null;
 
         String expression = "";
+        String notCompleted = "   ";
+        String completed = " x ";
 
         while (true) {
             System.out.println("\n" + new String(new char[23])
@@ -166,11 +169,16 @@ public class Main {
                                 + " MENU " + new String(new char[23])
                                 .replace("\0", "#"));
             
-            System.out.println("1. Entrada da expressão aritmética na notação infixa");
-            System.out.println("2. Criação da árvore binária de expressão aritmética");
-            System.out.println("3. Exibição da árvore binária de expressão aritmética");
-            System.out.println("4. Cálculo da expressão (realizando o percurso da árvore)");
-            System.out.println("5. Encerramento do programa");
+            System.out.println((maxCompleted >= 1? completed:notCompleted) +
+                                "1. Entrada da expressão aritmética na notação infixa");
+            System.out.println((maxCompleted >= 2? completed:notCompleted) +
+                                "2. Criação da árvore binária de expressão aritmética");
+            System.out.println((maxCompleted >= 3? completed:notCompleted) +
+                                "3. Exibição da árvore binária de expressão aritmética");
+            System.out.println((maxCompleted >= 4? completed:notCompleted) +
+                                "4. Cálculo da expressão (realizando o percurso da árvore)");
+            System.out.println((maxCompleted >= 5? completed:notCompleted) +
+                                "5. Encerramento do programa");
             System.out.println(new String(new char[52]).replace("\0", "#") + "\n");
 
             System.out.print("Digite a opção desejada: ");
@@ -200,18 +208,30 @@ public class Main {
                     System.out.println("\nExpressão infixa válida! " +
                                        "Expressão posfixa: " +
                                        expressionConversion(expression));
+                    
+                    maxCompleted = 1;
+                    
                     break;
                 case 2:
                     expressionTree = createExpressionTree(expressionConversion(expression));
                     System.out.println("\nÁrvore binária de expressão criada!");
+                    
+                    maxCompleted = 2;
+                    
                     break;
                 case 3: // TODO
                     System.out.println("\npreorder:  " + expressionTree.preorderTraversal());
                     System.out.println("inorder:   "   + expressionTree.inorderTraversal());
                     System.out.println("postorder: "   + expressionTree.postorderTraversal());
+
+                    maxCompleted = 3;
+
                     break;
                 case 4:
                     System.out.println("\nO resultado da expressão é " + expressionTree.getRoot().visitar());
+                    
+                    maxCompleted = 4;
+                    
                     break;
                 default:
                     System.out.println("Opção inválida!");
