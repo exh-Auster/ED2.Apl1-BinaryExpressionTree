@@ -43,7 +43,7 @@ public class Main {
 
         /* Checa, por meio de regex, se a expressão está em formato válido. */
         isValidExpression = infixExpression.replaceAll("[()]", "")
-                                           .matches("[1-9](\s*[()+*/^-]\s*[1-9]){1,}"); // TODO: change to Windows format
+                                           .matches("[0-9]+(\\s*[()+*/^-]\\s*[0-9]+)+"); // TODO: change to Windows format
 
         /* Retorna true apenas se ambos os componentes forem válidos. */
         return balancedParentheses && isValidExpression;
