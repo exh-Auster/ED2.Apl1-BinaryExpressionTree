@@ -241,7 +241,6 @@ public class Main {
                     while (!expressionValidation(expression)) {
                         // TODO: indicar qual é o problema na expressão
                         System.out.print("Expressão inválida! São pertmitidos números, parenteses e os quatro operadores básicos. Digite novamente: ");
-                        scanner.nextLine();
                         expression = scanner.nextLine()
                                             .replaceAll("[ ]", "");
                     }
