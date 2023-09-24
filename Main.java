@@ -204,10 +204,12 @@ public class Main {
         String notCompleted = "   ";
         String completed = " x ";
 
+        System.out.println("\nGrupo: " + "André Matteucci - 32273541 | Felipe Ribeiro - 32212720 | Enzo Koji - 32273754");
+
         while (true) {
-            System.out.println("\n" + new String(new char[23])
+            System.out.println("\n" + new String(new char[27])
                                 .replace("\0", "#")
-                                + " MENU " + new String(new char[23])
+                                + " MENU " + new String(new char[27])
                                 .replace("\0", "#"));
             
             System.out.println((maxCompleted >= 1? completed:notCompleted) +
@@ -220,7 +222,7 @@ public class Main {
                                 "4. Cálculo da expressão (realizando o percurso da árvore)");
             System.out.println((maxCompleted >= 5? completed:notCompleted) +
                                 "5. Encerramento do programa");
-            System.out.println(new String(new char[52]).replace("\0", "#") + "\n");
+            System.out.println(new String(new char[60]).replace("\0", "#") + "\n");
 
             System.out.print("Digite a opção desejada: ");
 
