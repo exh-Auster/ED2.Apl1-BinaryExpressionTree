@@ -1,12 +1,13 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
- * //TODO: description
+ * Implementação de uma árvore binária de expressões matemáticas.
+ * 
  * @author André Matteucci - 32273541
  * @author Felipe Ribeiro  - 32212720
  * @author Enzo Koji       - 32273754
 */
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class BinaryTree {
     private OperatorNode root;
@@ -35,6 +36,12 @@ public class BinaryTree {
 		return inorderTraversal(root);
 	}
 
+	/**
+	 * Percorre a árvore em ordem simétrica.
+	 * 
+	 * @param node nó de início do percurso
+	 * @return     string com a expressão em ordem simétrica
+	 */
 	private String inorderTraversal(Node node) {
 		if (node == null) {
 			return "";
@@ -53,6 +60,12 @@ public class BinaryTree {
 		return preorderTraversal(root);
 	}
 
+	/**
+	 * Percorre a árvore em pré-ordem.
+	 * 
+	 * @param node nó de início do percurso
+	 * @return     string com a expressão em pré-ordem
+	 */
 	private String preorderTraversal(Node node) {
 		if (node == null) {
 			return "";
@@ -71,13 +84,19 @@ public class BinaryTree {
 		return postorderTraversal(root);
 	}
 
+	/**
+	 * Percorre a árvore em pós-ordem.
+	 * 
+	 * @param node nó de início do percurso
+	 * @return     string com a expressão em pós-ordem
+	 */
 	private String postorderTraversal(Node node) {
 		if (node == null) {
 			return "";
 		}
 
 		StringBuilder traversal = new StringBuilder();
-		
+
 		traversal.append(postorderTraversal(node.getLeft()));
 		traversal.append(postorderTraversal(node.getRight()));
 		traversal.append(node.getData() + " | ");

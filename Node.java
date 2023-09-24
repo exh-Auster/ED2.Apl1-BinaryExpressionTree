@@ -1,8 +1,13 @@
 /**
- * //TODO: description
+ * Representação genérica de um nó da árvore binária.
+ * 
  * @author André Matteucci - 32273541
  * @author Felipe Ribeiro  - 32212720
  * @author Enzo Koji       - 32273754
+ * 
+ * @see BinaryTree
+ * @see OperandNode
+ * @see OperatorNode
 */
 
 public class Node {
@@ -152,6 +157,12 @@ public class Node {
 		return height + 1;
 	}
 
+    /**
+     * Método utilizado para visitar um nó da árvore.
+     * No caso particular do nó genérico, sempre retorna Float.NaN.
+     * 
+     * @return Float.NaN
+     */
     public float visitar() {
         return Float.NaN;
     }

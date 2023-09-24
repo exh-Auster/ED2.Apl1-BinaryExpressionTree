@@ -1,3 +1,15 @@
+/**
+ * Representação de um nó da árvore binária que contém um operando (float).
+ * 
+ * @author André Matteucci - 32273541
+ * @author Felipe Ribeiro  - 32212720
+ * @author Enzo Koji       - 32273754
+ * 
+ * @see BinaryTree
+ * @see Node
+ * @see OperatorNode
+ */
+
 public class OperandNode extends Node {
     protected float data;
 
@@ -30,6 +42,12 @@ public class OperandNode extends Node {
         return this.data;
     }
 
+    /**
+     * Método utilizado para visitar um nó da árvore.
+     * No caso particular do nó operando, retorna o valor do operando.
+     * 
+     * @return valor do operando.
+     */
     @Override
     public float visitar() {
         return this.data;

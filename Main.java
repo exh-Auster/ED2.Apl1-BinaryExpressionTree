@@ -1,8 +1,10 @@
 /**
- * //TODO: description
+ * Classe principal, responsável por executar o menu e controlar o fluxo do programa.
+ * 
  * @author André Matteucci - 32273541
  * @author Felipe Ribeiro  - 32212720
  * @author Enzo Koji       - 32273754
+ * 
  * @see <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see">javadoc - The Java API Documentation Generator</a>
  * @see <a href="https://www.cs.swarthmore.edu/~newhall/unixhelp/javacodestyle.html">Java Style Guidelines</a>
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/IandI/hidevariables.html">Hiding Fields (The Java™ Tutorials)</a>
@@ -16,17 +18,29 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
-    public static boolean isNumeric(String str) { 
-        try {  
-          Double.parseDouble(str);  
+    /**
+     * Método utilizado para checar se uma string é um número.
+     * 
+     * @param str String a ser checada
+     * @return    true se a string for um número, false caso contrário
+     */
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e) {
+            return false;
+        }
+    }
 
-          return true;
-        } catch(NumberFormatException e){  
-          return false;  
-        }  
-      }
-
-    private static boolean expressionValidation(String infixExpression) { // TODO: allow Doubles
+    /**
+     * Método utilizado para validar se uma expressão matemática está em formato válido.
+     * 
+     * @param infixExpression expressão matemática a ser validada
+     * @return                true se a expressão estiver em formato válido,
+     *                        false caso contrário
+     */
+    private static boolean expressionValidation(String infixExpression) {
         Stack<Character> parentheses = new Stack<Character>();
         boolean balancedParentheses = true;
         boolean isValidExpression;
@@ -55,18 +69,28 @@ public class Main {
 
         /* Checa, por meio de regex, se a expressão está em formato válido. */
         isValidExpression = infixExpression.replaceAll("[()]", "")
-                                           .matches("[0-9]+(\\s*[()+*/^-]\\s*[0-9]+)+"); // TODO: change to Windows format
+                                           .matches("[0-9]+(\\.\\d+)?(\\s*[()+*/-]\\s*[0-9]+(\\.\\d+)?)+"); // TODO: change to Windows format
 
         /* Retorna true apenas se ambos os componentes forem válidos. */
         return balancedParentheses && isValidExpression;
     }
 
+    /**
+     * Método utilizado para converter uma expressão matemática
+     * da notação infixa para a notação posfixa.
+     * 
+     * @param infixExpression expressão matemática na notação infixa
+     * @return                expressão matemática na notação posfixa
+     */
     public static List<String> expressionConversion(String infixExpression) {
         Tokenizer tk = new Tokenizer(infixExpression);
+        /* Lista utilizada para armazenar os tokens da expressão infixa */
         List<String> tokens = tk.tokenize();
 
+        /* Pilha auxiliar utilizada diramte a conversão */
         Stack<String> conversion = new Stack<String>();
 
+        /* Lista utilizada para armazenar a expressão posfixa final */
         List<String> output = new ArrayList<String>();
 
         for (String token : tokens) {
@@ -145,6 +169,12 @@ public class Main {
         return output;
     }
 
+    /**
+     * Método utilizado para criar uma árvore binária de expressão.
+     * 
+     * @param postfixExpression expressão matemática na notação posfixa
+     * @return                  árvore binária de expressão
+     */
     public static BinaryTree createExpressionTree(List<String> postfixExpression) {
         Stack<Node> expressionTree = new Stack<Node>();
 
@@ -231,9 +261,9 @@ public class Main {
                     
                     break;
                 case 3: // TODO
-                    System.out.println("\npreorder:  " + expressionTree.preorderTraversal());
-                    System.out.println("inorder:   "   + expressionTree.inorderTraversal());
-                    System.out.println("postorder: "   + expressionTree.postorderTraversal());
+                    System.out.println("\nÁrvore em pré-ordem: " + expressionTree.preorderTraversal());
+                    System.out.println("\nÁrvore em ordem    : " + expressionTree.inorderTraversal());
+                    System.out.println("\nÁrvore em pós-ordem: " + expressionTree.postorderTraversal());
 
                     maxCompleted = 3;
 

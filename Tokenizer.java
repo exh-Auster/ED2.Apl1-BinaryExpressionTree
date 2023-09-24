@@ -1,6 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Classe responsável por tokenizar uma expressão matemática.
+ * 
+ * @author André Matteucci - 32273541
+ * @author Felipe Ribeiro  - 32212720
+ * @author Enzo Koji       - 32273754
+ */
+
 public class Tokenizer {
     private char[] input;
     private int index;
@@ -10,6 +19,11 @@ public class Tokenizer {
         this.index = 0;
     }
 
+    /**
+     * Método utilizado para tokenizar uma expressão matemática.
+     * 
+     * @return lista de tokens
+     */
     public List<String> tokenize() {
         List<String> tokens = new ArrayList<String>();
 
@@ -31,6 +45,11 @@ public class Tokenizer {
         return tokens;
     }
 
+    /**
+     * Método utilizado para ler um número da expressão.
+     * 
+     * @return número lido em formato de string
+     */
     private String readNumber() {
         StringBuilder number = new StringBuilder();
         boolean decimalEncountered = false;
@@ -53,6 +72,11 @@ public class Tokenizer {
         return number.toString();
     }
 
+    /**
+     * Método utilizado para ler um operador da expressão.
+     * 
+     * @return operador lido em formato de string
+     */
     private String readOperator() {
         StringBuilder operator = new StringBuilder();
 
@@ -67,6 +91,11 @@ public class Tokenizer {
         return operator.toString();
     }
 
+    /**
+     * Método utilizado para ler um parêntese da expressão.
+     * 
+     * @return parêntese lido em formato de string
+     */
     private String readParenthesis() {
         StringBuilder parenthesis = new StringBuilder();
 
