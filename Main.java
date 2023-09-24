@@ -263,7 +263,7 @@ public class Main {
                                        "Expressão posfixa: " +
                                        expressionConversion(expression));
                     
-                    wait(3500);
+                    wait(1500);
                     maxCompleted = 1;
                     
                     break;
@@ -271,7 +271,7 @@ public class Main {
                     expressionTree = createExpressionTree(expressionConversion(expression));
                     System.out.println("\nÁrvore binária de expressão criada!");
                     
-                    wait(3500);
+                    wait(1500);
                     maxCompleted = 2;
                     
                     break;
@@ -280,14 +280,14 @@ public class Main {
                     System.out.println("\nÁrvore em ordem    : " + expressionTree.inorderTraversal());
                     System.out.println("\nÁrvore em pós-ordem: " + expressionTree.postorderTraversal());
 
-                    wait(3500);
+                    wait(1500);
                     maxCompleted = 3;
                     
                     break;
                 case 4:
                     System.out.println("\nO resultado da expressão é " + expressionTree.getRoot().visitar());
                     
-                    wait(3500);
+                    wait(1500);
                     maxCompleted = 4;
                     
                     break;
