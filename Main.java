@@ -20,6 +20,7 @@ import java.util.Stack;
 public class Main {
     /**
      * Método utilizado para pausar a execução do programa por um determinado tempo.
+     * 
      * @param ms tempo em milissegundos
      */
     public static void wait(int ms) {
