@@ -35,7 +35,9 @@ public class Tokenizer {
         StringBuilder number = new StringBuilder();
         boolean decimalEncountered = false;
 
-        while (this.index < this.input.length && (Character.isDigit(this.input[this.index]) || this.input[this.index] == '.')) {
+        while (this.index < this.input.length &&
+               (Character.isDigit(this.input[this.index]) ||
+               this.input[this.index] == '.')) {
             if (this.input[this.index] == '.') {
                 if (decimalEncountered) {
                     break;
