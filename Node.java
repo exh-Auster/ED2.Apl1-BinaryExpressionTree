@@ -15,28 +15,28 @@ public class Node {
         this.parent = null;
         this.left = null;
         this.right = null;
-        this.data = '\0'; // TODO
+        this.data = '\0';
     }
 
     public Node(Node parent) {
         this.parent = parent;
         this.left = null;
         this.right = null;
-        this.data = '\0'; // TODO
+        this.data = '\0';
     }
 
     public Node(Node left, Node right) {
         this.parent = null;
         this.left = left;
         this.right = right;
-        this.data = '\0'; // TODO
+        this.data = '\0';
     }
 
     public Node(Node parent, Node left, Node right) {
         this.parent = parent;
         this.left = left;
         this.right = right;
-        this.data = '\0'; // TODO
+        this.data = '\0';
     }
 
     public Node(char data) {
@@ -152,9 +152,7 @@ public class Node {
 		return height + 1;
 	}
 
-    public float visitar() { // TODO: rename method
+    public float visitar() {
         return Float.NaN;
     }
-
-    // TODO: toString() override
 }
