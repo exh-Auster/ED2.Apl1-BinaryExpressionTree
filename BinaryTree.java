@@ -1,6 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Implementação de uma árvore binária de expressões matemáticas.
  * 
@@ -100,37 +97,6 @@ public class BinaryTree {
 		traversal.append(postorderTraversal(node.getLeft()));
 		traversal.append(postorderTraversal(node.getRight()));
 		traversal.append(node.getData() + " | ");
-		
-		return traversal.toString();
-	}
-
-	public String levelOrderTraversal() {
-		return levelOrderTraversal(root);
-	}
-	
-	private String levelOrderTraversal(Node node) {
-		if (node == null) {
-			return "";
-		}
-		
-		StringBuilder traversal = new StringBuilder();
-
-		Queue<Node> queue = new LinkedList<>();
-
-		queue.add(node);
-
-		while (!queue.isEmpty()) {
-			Node visited = queue.remove();
-			traversal.append(visited.getData() + " ");
-
-			if (visited.hasLeft()) {
-				queue.add(visited.getLeft());
-			}
-
-			if (visited.hasRight()) {
-				queue.add(visited.getRight());
-			}
-		}
 		
 		return traversal.toString();
 	}
