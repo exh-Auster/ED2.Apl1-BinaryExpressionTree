@@ -19,6 +19,19 @@ import java.util.Stack;
 
 public class Main {
     /**
+     * Método utilizado para pausar a execução do programa por um determinado tempo.
+     * @param ms tempo em milissegundos
+     */
+    public static void wait(int ms) {
+        try {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    /**
      * Método utilizado para checar se uma string é um número.
      * 
      * @param str String a ser checada
@@ -250,13 +263,15 @@ public class Main {
                                        "Expressão posfixa: " +
                                        expressionConversion(expression));
                     
+                    wait(3500);
                     maxCompleted = 1;
-
+                    
                     break;
                 case 2:
                     expressionTree = createExpressionTree(expressionConversion(expression));
                     System.out.println("\nÁrvore binária de expressão criada!");
                     
+                    wait(3500);
                     maxCompleted = 2;
                     
                     break;
@@ -265,12 +280,14 @@ public class Main {
                     System.out.println("\nÁrvore em ordem    : " + expressionTree.inorderTraversal());
                     System.out.println("\nÁrvore em pós-ordem: " + expressionTree.postorderTraversal());
 
+                    wait(3500);
                     maxCompleted = 3;
-
+                    
                     break;
                 case 4:
                     System.out.println("\nO resultado da expressão é " + expressionTree.getRoot().visitar());
                     
+                    wait(3500);
                     maxCompleted = 4;
                     
                     break;
