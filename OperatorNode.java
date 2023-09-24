@@ -3,7 +3,7 @@ public class OperatorNode extends Node {
 
     public OperatorNode() {
         super();
-        this.data = '\0'; // TODO
+        this.data = '\0';
     }
 
     public OperatorNode(char data) {
@@ -29,9 +29,6 @@ public class OperatorNode extends Node {
     public Character getData() {
         return this.data;
     }
-
-    // TODO: rename method
-    // TODO: "Na classe do nó que armazena um operador, esse método deve retornar o resultado da operação indicada pelo operador."
     
     @Override
     public float visitar() {
@@ -44,7 +41,7 @@ public class OperatorNode extends Node {
         } else if (this.data == '/') {
             return this.left.visitar() / this.right.visitar();
         } else {
-            return Float.NaN; // TODO
+            return Float.NaN;
         }
     }
 }
