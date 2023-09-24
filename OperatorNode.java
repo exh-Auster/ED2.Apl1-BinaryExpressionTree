@@ -1,3 +1,15 @@
+/**
+ * Representação de um nó da árvore binária que contém um operador (char).
+ * 
+ * @author André Matteucci - 32273541
+ * @author Felipe Ribeiro  - 32212720
+ * @author Enzo Koji       - 32273754
+ * 
+ * @see BinaryTree
+ * @see Node
+ * @see OperandNode
+ */
+
 public class OperatorNode extends Node {
     protected char data;
 
@@ -30,6 +42,12 @@ public class OperatorNode extends Node {
         return this.data;
     }
     
+    /**
+     * Método utilizado para visitar um nó da árvore.
+     * No caso particular do nó operador, retorna o resultado da operação.
+     * 
+     * @return resultado da operação.
+     */
     @Override
     public float visitar() {
         if (this.data == '+') {
