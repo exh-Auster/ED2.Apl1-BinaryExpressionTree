@@ -69,7 +69,7 @@ public class Main {
 
         /* Checa, por meio de regex, se a expressão está em formato válido. */
         isValidExpression = infixExpression.replaceAll("[()]", "")
-                                           .matches("[0-9]+(\\.\\d+)?(\\s*[()+*/-]\\s*[0-9]+(\\.\\d+)?)+"); // TODO: change to Windows format
+                                           .matches("[0-9]+(\\.\\d+)?(\\s*[()+*/-]\\s*[0-9]+(\\.\\d+)?)+");
 
         /* Retorna true apenas se ambos os componentes forem válidos. */
         return balancedParentheses && isValidExpression;
@@ -241,7 +241,6 @@ public class Main {
                                         .replaceAll("[ ]", "");
 
                     while (!expressionValidation(expression)) {
-                        // TODO: indicar qual é o problema na expressão
                         System.out.print("Expressão inválida! São pertmitidos números, parenteses e os quatro operadores básicos. Digite novamente: ");
                         expression = scanner.nextLine()
                                             .replaceAll("[ ]", "");
@@ -261,7 +260,7 @@ public class Main {
                     maxCompleted = 2;
                     
                     break;
-                case 3: // TODO
+                case 3:
                     System.out.println("\nÁrvore em pré-ordem: " + expressionTree.preorderTraversal());
                     System.out.println("\nÁrvore em ordem    : " + expressionTree.inorderTraversal());
                     System.out.println("\nÁrvore em pós-ordem: " + expressionTree.postorderTraversal());
