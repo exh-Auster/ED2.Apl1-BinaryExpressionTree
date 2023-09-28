@@ -269,6 +269,11 @@ public class Main {
                     
                     break;
                 case 2:
+                    if (maxCompleted < 1) {
+                        System.out.println("\nOpção indisponível. É necessário inserir uma expressão infixa válida antes de criar a árvore binária de expressão.");
+                        break;
+                    }
+                    
                     expressionTree = createExpressionTree(expressionConversion(expression));
                     System.out.println("\nÁrvore binária de expressão criada!");
                     
@@ -277,6 +282,11 @@ public class Main {
                     
                     break;
                 case 3:
+                    if (maxCompleted < 2) {
+                        System.out.println("\nOpção indisponível. É necessário criar a árvore binária de expressão antes de exibi-la.");
+                        break;
+                    }
+
                     System.out.println("\nÁrvore em pré-ordem: " + expressionTree.preorderTraversal());
                     System.out.println("\nÁrvore em ordem    : " + expressionTree.inorderTraversal());
                     System.out.println("\nÁrvore em pós-ordem: " + expressionTree.postorderTraversal());
@@ -286,6 +296,11 @@ public class Main {
                     
                     break;
                 case 4:
+                    if (maxCompleted < 2) {
+                        System.out.println("\nOpção indisponível. É necessário criar a árvore binária de expressão antes de calcular a expressão.");
+                        break;
+                    }
+
                     System.out.println("\nO resultado da expressão é " + expressionTree.getRoot().visitar());
                     
                     wait(1500);
